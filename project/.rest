@@ -1,0 +1,5 @@
+## Test /all route
+http://localhost:8000/contacts/all
+
+## Test /id route
+http://localhost:8000/contacts/id/672bba545293fe83b7765629
