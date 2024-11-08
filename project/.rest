@@ -1,5 +1,18 @@
-## Test /all route
-http://localhost:8000/contacts/all
+// Local: Get all contacts
+GET http://localhost:8000/contacts/all
 
-## Test /id route
-http://localhost:8000/contacts/id/672bba545293fe83b7765629
+###
+
+// Local: Get by id
+GET http://localhost:8000/contacts/id/672bba545293fe83b7765629
+
+
+###
+
+// Render: Get all contacts
+GET https://cse341-b316.onrender.com/contacts/all
+
+###
+
+// Render: Get by id
+GET https://cse341-b316.onrender.com/contacts/id/672bba545293fe83b7765629
