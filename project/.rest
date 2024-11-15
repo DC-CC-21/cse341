@@ -4,7 +4,7 @@ GET http://localhost:8000/contacts
 ###
 
 // Local: Get by id
-GET http://localhost:8000/contacts/672bba545293fe83b7765629
+GET http://localhost:8000/contacts/<insert id to test>
 
 ###
 
@@ -13,8 +13,8 @@ POST http://localhost:8000/contacts/ HTTP/1.1
 Content-Type: application/json
 
 {
-      "fname": "Anikin",
-      "lname": "Skywalker",
+      "firstName": "Anikin",
+      "lastName": "Skywalker",
       "email": "luke@skywalker.net",
       "birthday": "6/8/01",
       "favoriteColor": "blue"
@@ -23,12 +23,12 @@ Content-Type: application/json
 ###
 
 // Local: Update existing contact
-PUT http://localhost:8000/contacts/6733be557843b0f1e311d5d2 HTTP/1.1
+PUT http://localhost:8000/contacts/<insert id to test> HTTP/1.1
 Content-Type: application/json
 
 {
-      "fname": "Darth",
-      "lname": "Vader",
+      "firstName": "Darth",
+      "lastName": "Vader",
       "email": "jedi@tosith.net",
       "birthday": "6/8/01",
       "favoriteColor": "red"
@@ -36,8 +36,8 @@ Content-Type: application/json
 
 ###
 
-// Local: Update existing contact
-DELETE http://localhost:8000/contacts/6733be557843b0f1e311d5d2 HTTP/1.1
+// Local: Delete existing contact
+DELETE http://localhost:8000/contacts/<insert id to test> HTTP/1.1
 
 
 ###
@@ -48,4 +48,37 @@ GET https://cse341-b316.onrender.com/contacts
 ###
 
 // Render: Get by id
-GET https://cse341-b316.onrender.com/contacts/672bba545293fe83b7765629
+GET https://cse341-b316.onrender.com/contacts/<insert id to test>
+
+###
+
+// Render: Post new contact
+POST https://cse341-b316.onrender.com/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+      "firstName": "Kylo",
+      "lastName": "Ren",
+      "email": "kylo@ren.net",
+      "birthday": "6/8/14",
+      "favoriteColor": "black"
+}
+
+###
+
+// Render: Update existing contact
+PUT https://cse341-b316.onrender.com/contacts/<insert id to test> HTTP/1.1
+Content-Type: application/json
+
+{
+      "firstName": "Ben",
+      "lastName": "Solo",
+      "email": "ben@solo.net",
+      "birthday": "6/4/18",
+      "favoriteColor": "darkblue"
+}
+
+###
+
+// Render: Delete existing contact
+DELETE https://cse341-b316.onrender.com/contacts/<insert id to test> HTTP/1.1
