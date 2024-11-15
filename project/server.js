@@ -12,6 +12,8 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
+
 app.use("/contacts", contactsRoute);
 app.get("/", (req, res) => {
   res.send("Hello World!");
