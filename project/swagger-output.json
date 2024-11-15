@@ -5,7 +5,7 @@
     "description": "API for getting contact information",
     "version": "1.0.0"
   },
-  "host": "cse341-b316.onrender.com/",
+  "host": "cse341-b316.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -39,10 +39,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
+                "firstName": {
                   "example": "any"
                 },
-                "lastname": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
@@ -97,10 +97,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "firstname": {
+                "firstName": {
                   "example": "any"
                 },
-                "lastname": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {

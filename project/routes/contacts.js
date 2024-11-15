@@ -47,8 +47,8 @@ contactsRoute.get("/:id", async (req, res) => {
  */
 contactsRoute.post("/", async (req, res) => {
   const data = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
     birthday: req.body.birthday,
     favoriteColor: req.body.favoriteColor,
@@ -72,8 +72,8 @@ contactsRoute.post("/", async (req, res) => {
  */
 contactsRoute.put("/:id", async (req, res) => {
   const data = {
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
     email: req.body.email,
     birthday: req.body.birthday,
     favoriteColor: req.body.favoriteColor,
