@@ -1,18 +1,51 @@
 // Local: Get all contacts
-GET http://localhost:8000/contacts/all
+GET http://localhost:8000/contacts
 
 ###
 
 // Local: Get by id
-GET http://localhost:8000/contacts/id/672bba545293fe83b7765629
+GET http://localhost:8000/contacts/672bba545293fe83b7765629
+
+###
+
+// Local: Post new contact
+POST http://localhost:8000/contacts/ HTTP/1.1
+Content-Type: application/json
+
+{
+      "fname": "Anikin",
+      "lname": "Skywalker",
+      "email": "luke@skywalker.net",
+      "birthday": "6/8/01",
+      "favoriteColor": "blue"
+}
+
+###
+
+// Local: Update existing contact
+PUT http://localhost:8000/contacts/6733be557843b0f1e311d5d2 HTTP/1.1
+Content-Type: application/json
+
+{
+      "fname": "Darth",
+      "lname": "Vader",
+      "email": "jedi@tosith.net",
+      "birthday": "6/8/01",
+      "favoriteColor": "red"
+}
+
+###
+
+// Local: Update existing contact
+DELETE http://localhost:8000/contacts/6733be557843b0f1e311d5d2 HTTP/1.1
 
 
 ###
 
 // Render: Get all contacts
-GET https://cse341-b316.onrender.com/contacts/all
+GET https://cse341-b316.onrender.com/contacts
 
 ###
 
 // Render: Get by id
-GET https://cse341-b316.onrender.com/contacts/id/672bba545293fe83b7765629
+GET https://cse341-b316.onrender.com/contacts/672bba545293fe83b7765629

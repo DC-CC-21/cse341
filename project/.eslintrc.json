@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "quotes": ["error", "double"]
+  },
+  "env": {
+    "browser": false,
+    "node": true,
+    "es2021": true,
+    "jest": true
+  }
+}
