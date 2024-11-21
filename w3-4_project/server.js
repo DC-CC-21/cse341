@@ -11,6 +11,10 @@ const userRoute = require("./routes/userRoute");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("./swagger-output.json");
 
+if (process.env.NODE_ENV !== "development") { 
+  swaggerDoc.host = swaggerDoc.servers[1].url.replace("https://", "");
+}
+
 app.use(
   "/api-docs",
   swaggerUi.serve,
