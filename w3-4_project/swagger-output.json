@@ -1,0 +1,404 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "CSE 341 Project API",
+    "description": "API endpoint for CSE 341 week 3-4 project",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "Posts",
+      "description": "Endpoints for posts"
+    },
+    {
+      "name": "Users",
+      "description": "Endpoints for users"
+    }
+  ],
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "paths": {
+    "/posts/": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Post object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "required": [
+                "_id"
+              ],
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "The id of the created post."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/posts/{id}": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/Post"
+            },
+            "description": "User found successfully."
+          },
+          "400": {
+            "description": "Invalid post id"
+          },
+          "404": {
+            "description": "Could not find post"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Post object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Post"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Posts"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Invalid post id"
+          },
+          "404": {
+            "description": "Post not found"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_id": {
+                  "type": "string",
+                  "example": "string"
+                }
+              },
+              "required": [
+                "_id"
+              ],
+              "xml": {
+                "name": "main"
+              }
+            },
+            "description": "The id of the created user."
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "schema": {
+              "$ref": "#/definitions/User"
+            },
+            "description": "User found successfully."
+          },
+          "400": {
+            "description": "Invalid user id"
+          },
+          "404": {
+            "description": "Could not find user"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "User object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Users"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Invalid user id"
+          },
+          "404": {
+            "description": "User not found"
+          },
+          "500": {
+            "description": "Database error"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Post": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string",
+          "example": "string"
+        },
+        "content": {
+          "type": "string",
+          "example": "string"
+        },
+        "author": {
+          "type": "string",
+          "example": "string"
+        },
+        "date": {
+          "type": "string",
+          "example": "string"
+        },
+        "attachments": {
+          "type": "array",
+          "example": [
+            "b64String"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "lastUpdated": {
+          "type": "string",
+          "example": "string"
+        }
+      },
+      "required": [
+        "title",
+        "content",
+        "author",
+        "date",
+        "attachments",
+        "lastUpdated"
+      ]
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "example": "string"
+        },
+        "lastName": {
+          "type": "string",
+          "example": "string"
+        },
+        "email": {
+          "type": "string",
+          "example": "string"
+        },
+        "password": {
+          "type": "string",
+          "example": "string"
+        },
+        "birthday": {
+          "type": "string",
+          "example": "string"
+        }
+      },
+      "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "password",
+        "birthday"
+      ]
+    }
+  }
+}
