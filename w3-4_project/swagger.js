@@ -6,6 +6,16 @@ const doc = {
         description: "API endpoint for CSE 341 week 3-4 project"
     },
     host: "localhost:8000",
+    servers: [
+        {
+            url: "http://localhost:8000",
+            description: "Development server"
+        },
+        {
+            url: "https://cse341-b316.onrender.com",
+            description: "Production server"
+        }
+    ],
     schemes: ["http", "https"],
     tags: [
         {
