@@ -1,15 +1,6 @@
 const validate = require("express-validator");
+const { validateDate } = require("../utilities");
 
-function validateDate(date) {
-  const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-  if (!dateRegex.test(date)) {
-    throw new Error("Date must be in the format MM/DD/YYYY");
-  } else if (new Date(date) > new Date()) {
-    throw new Error("Date cannot be in the future");
-  } else {
-    return true;
-  }
-}
 
 const addUserRules = [
   validate
@@ -40,7 +31,7 @@ const addUserRules = [
     .withMessage("Birthday is required")
     .isString()
     .withMessage("Birthday must be a string")
-    .custom(validateDate),
+    .custom((date) => validateDate(date, "Birthday")),
   validate
     .body("password")
     .trim()

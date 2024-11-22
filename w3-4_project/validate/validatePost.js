@@ -1,15 +1,6 @@
 const validate = require("express-validator");
+const { validateDate } = require("../utilities");
 
-function validateDate(date) {
-  const dateRegex = /^\d{2}\/\d{2}\/\d{4}$/;
-  if (!dateRegex.test(date)) {
-    throw new Error("Date must be in the format MM/DD/YYYY");
-  } else if (new Date(date) > new Date()) {
-    throw new Error("Date cannot be in the future");
-  } else {
-    return true;
-  }
-}
 
 const addPostRules = [
   validate
@@ -62,7 +53,7 @@ const addPostRules = [
     .withMessage("Last Updated is required")
     .isString()
     .withMessage("Last Updated must be a string")
-    .custom(validateDate),
+    .custom((date) => validateDate(date, "Last Updated")),
   validate
     .body("tags")
     .optional()
