@@ -367,6 +367,15 @@
         "lastUpdated": {
           "type": "string",
           "example": "string"
+        },
+        "tags": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
@@ -375,7 +384,8 @@
         "author",
         "date",
         "attachments",
-        "lastUpdated"
+        "lastUpdated",
+        "tags"
       ]
     },
     "User": {

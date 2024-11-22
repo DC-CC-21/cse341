@@ -15,7 +15,6 @@ exports.GetAllPosts = async (req, res) => {
     return res.json(posts);
   } catch (error) {
     if (error instanceof Api404) throw error;
-    console.error(error);
     throw new Api500("Database error");
   }
 };
@@ -46,6 +45,10 @@ exports.CreatePost = async (req, res) => {
 };
 
 exports.UpdatePost = async (req, res) => {
+  const { id } = req.params;
+
+  if (!mongoose.isValidObjectId(id))
+    throw new MongooseError("Invalid post id");
   try {
     await PostsModel.findByIdAndUpdate(req.params.id, req.body);
     return res.status(204).send();

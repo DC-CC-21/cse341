@@ -63,6 +63,16 @@ const addPostRules = [
     .isString()
     .withMessage("Last Updated must be a string")
     .custom(validateDate),
+  validate
+    .body("tags")
+    .optional()
+    .isArray()
+    .withMessage("Tags must be an array of strings"),
+  validate
+    .body("tags.*")
+    .trim()
+    .isString()
+    .withMessage("Each tag must be a string"),
 ];
 
 async function checkPostData(req, res, next) {

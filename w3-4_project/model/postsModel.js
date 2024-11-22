@@ -8,6 +8,7 @@ const PostsSchema = mongoose.Schema({
   date: String,
   attachments: [String],
   lastUpdated: String,
+  tags: [String],
 });
 
 const PostsModel = mongoose.model("posts", PostsSchema);

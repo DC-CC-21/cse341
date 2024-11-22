@@ -34,7 +34,8 @@ const doc = {
             $author: "string",
             $date: "string",
             $attachments: ["b64String"],
-            $lastUpdated: "string"
+            $lastUpdated: "string",
+            $tags: ["string"]
         },
         User: {
             $firstName: "string",

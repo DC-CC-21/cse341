@@ -16,12 +16,12 @@ postsRoute.get(
   "/:id",
   /* 
     #swagger.tags = ['Posts']
-	#swagger.responses[200] = { 
-	  schema: { 
-	    "$ref": "#/definitions/Post"
-	  },
-      description: "User found successfully."
-	}
+    #swagger.responses[200] = { 
+      schema: { 
+        "$ref": "#/definitions/Post"
+      },
+        description: "User found successfully."
+    }
     #swagger.responses[404] = { 
       description: "Could not find post"
     }
