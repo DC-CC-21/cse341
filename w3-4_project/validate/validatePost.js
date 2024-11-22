@@ -31,7 +31,7 @@ const addPostRules = [
     .withMessage("Date is required")
     .isString()
     .withMessage("Date must be a string")
-    .custom(validateDate),
+    .custom((date) => validateDate(date, "Date")),
   validate
     .body("attachments")
     .optional()
