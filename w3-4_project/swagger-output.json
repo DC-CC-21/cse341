@@ -23,8 +23,8 @@
       "description": "Endpoints for posts"
     },
     {
-      "name": "Users",
-      "description": "Endpoints for users"
+      "name": "Items",
+      "description": "Endpoints for items"
     }
   ],
   "schemes": [
@@ -192,10 +192,10 @@
         }
       }
     },
-    "/user/": {
+    "/item/": {
       "get": {
         "tags": [
-          "Users"
+          "Item"
         ],
         "description": "",
         "responses": {
@@ -206,17 +206,17 @@
       },
       "post": {
         "tags": [
-          "Users"
+          "Item"
         ],
         "description": "",
         "parameters": [
           {
             "name": "body",
             "in": "body",
-            "description": "User object",
+            "description": "item object",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Item"
             }
           }
         ],
@@ -237,10 +237,13 @@
                 "name": "main"
               }
             },
-            "description": "The id of the created user."
+            "description": "The id of the created item."
           },
           "400": {
             "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "500": {
             "description": "Database error"
@@ -248,10 +251,10 @@
         }
       }
     },
-    "/user/{id}": {
+    "/item/{id}": {
       "get": {
         "tags": [
-          "Users"
+          "Item"
         ],
         "description": "",
         "parameters": [
@@ -265,15 +268,15 @@
         "responses": {
           "200": {
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Item"
             },
-            "description": "User found successfully."
+            "description": "item found successfully."
           },
           "400": {
-            "description": "Invalid user id"
+            "description": "Invalid item id"
           },
           "404": {
-            "description": "Could not find user"
+            "description": "Could not find item"
           },
           "500": {
             "description": "Database error"
@@ -282,7 +285,7 @@
       },
       "put": {
         "tags": [
-          "Users"
+          "Item"
         ],
         "description": "",
         "parameters": [
@@ -295,10 +298,10 @@
           {
             "name": "body",
             "in": "body",
-            "description": "User object",
+            "description": "item object",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Item"
             }
           }
         ],
@@ -309,6 +312,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Database error"
           }
@@ -316,7 +322,7 @@
       },
       "delete": {
         "tags": [
-          "Users"
+          "Item"
         ],
         "description": "",
         "parameters": [
@@ -332,10 +338,13 @@
             "description": "OK"
           },
           "400": {
-            "description": "Invalid user id"
+            "description": "Invalid item id"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
-            "description": "User not found"
+            "description": "item not found"
           },
           "500": {
             "description": "Database error"
@@ -397,36 +406,36 @@
         "tags"
       ]
     },
-    "User": {
+    "Item": {
       "type": "object",
       "properties": {
-        "firstName": {
+        "itemName": {
           "type": "string",
           "example": "string"
         },
-        "lastName": {
+        "price": {
+          "type": "string",
+          "example": "number"
+        },
+        "description": {
           "type": "string",
           "example": "string"
         },
-        "email": {
-          "type": "string",
-          "example": "string"
-        },
-        "password": {
-          "type": "string",
-          "example": "string"
-        },
-        "birthday": {
-          "type": "string",
-          "example": "string"
+        "tags": {
+          "type": "array",
+          "example": [
+            "string"
+          ],
+          "items": {
+            "type": "string"
+          }
         }
       },
       "required": [
-        "firstName",
-        "lastName",
-        "email",
-        "password",
-        "birthday"
+        "itemName",
+        "price",
+        "description",
+        "tags"
       ]
     }
   }

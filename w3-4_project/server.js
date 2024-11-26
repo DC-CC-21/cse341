@@ -6,7 +6,7 @@ require("dotenv").config();
 require("./db")();
 
 const postsRoute = require("./routes/postsRoute");
-const userRoute = require("./routes/userRoute");
+const itemRoute = require("./routes/itemRoute");
 
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("./swagger-output.json");
@@ -39,7 +39,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/posts", postsRoute);
-app.use("/user", userRoute);
+app.use("/item", itemRoute);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");
