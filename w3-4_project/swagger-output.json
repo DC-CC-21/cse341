@@ -82,6 +82,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Database error"
           }
@@ -149,6 +152,9 @@
           "400": {
             "description": "Bad Request"
           },
+          "401": {
+            "description": "Unauthorized"
+          },
           "500": {
             "description": "Database error"
           }
@@ -173,6 +179,9 @@
           },
           "400": {
             "description": "Invalid post id"
+          },
+          "401": {
+            "description": "Unauthorized"
           },
           "404": {
             "description": "Post not found"

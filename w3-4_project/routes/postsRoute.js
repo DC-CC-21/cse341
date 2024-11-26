@@ -5,6 +5,7 @@ const {
   addPostRules,
   checkPostData,
 } = require("../validate/validatePost");
+const { requiresAuth } = require("express-openid-connect"); 
 
 postsRoute.get(
   "/",
@@ -49,12 +50,16 @@ postsRoute.post(
 	  schema: { 
 	    $_id: "string",
 	  },
-      description: "The id of the created post."
-	}
-    #swagger.responses[500] = { 
-      description: "Database error"
-    }
+    description: "The id of the created post."
+  }
+  #swagger.responses[401] = { 
+    description: "Unauthorized"
+  }
+  #swagger.responses[500] = { 
+    description: "Database error"
+  }
   */
+  requiresAuth(),
   addPostRules,
   checkPostData,
   HandleError(postController.CreatePost)
@@ -73,10 +78,14 @@ postsRoute.put(
     #swagger.responses[204] = { 
       description: "OK"
     }
+    #swagger.responses[401] = { 
+      description: "Unauthorized"
+    }
     #swagger.responses[500] = { 
       description: "Database error"
     }
   */
+  requiresAuth(),
   addPostRules,
   checkPostData,
   HandleError(postController.UpdatePost)
@@ -95,10 +104,14 @@ postsRoute.delete(
     #swagger.responses[400] = { 
       description: "Invalid post id"
     }
+    #swagger.responses[401] = { 
+      description: "Unauthorized"
+    }
     #swagger.responses[500] = { 
       description: "Database error"
     }
   */
+  requiresAuth(),
   HandleError(postController.DeletePost)
 );
 

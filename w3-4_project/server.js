@@ -16,6 +16,19 @@ if (process.env.NODE_ENV !== "development") {
   swaggerDoc.schemes.splice(0, 1) // remove http
 }
 
+const { auth } = require("express-openid-connect");
+
+const config = {
+  authRequired: false,
+  auth0Logout: true,
+  secret: process.env.AUTH0_SECRET,
+  baseURL: "http://localhost:8000",
+  clientID: process.env.AUTH0_CLIENT_ID,
+  issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
+};
+
+app.use(auth(config));
+
 app.use(
   "/api-docs",
   swaggerUi.serve,
