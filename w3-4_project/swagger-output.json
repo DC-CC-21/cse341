@@ -195,7 +195,7 @@
     "/item/": {
       "get": {
         "tags": [
-          "Item"
+          "Items"
         ],
         "description": "",
         "responses": {
@@ -206,7 +206,7 @@
       },
       "post": {
         "tags": [
-          "Item"
+          "Items"
         ],
         "description": "",
         "parameters": [
@@ -254,7 +254,7 @@
     "/item/{id}": {
       "get": {
         "tags": [
-          "Item"
+          "Items"
         ],
         "description": "",
         "parameters": [
@@ -285,7 +285,7 @@
       },
       "put": {
         "tags": [
-          "Item"
+          "Items"
         ],
         "description": "",
         "parameters": [
@@ -322,7 +322,7 @@
       },
       "delete": {
         "tags": [
-          "Item"
+          "Items"
         ],
         "description": "",
         "parameters": [

@@ -8,14 +8,14 @@ const {
 
 itemsRoute.get(
   "/",
-  // #swagger.tags = ['Item']
+  // #swagger.tags = ['Items']
   HandleError(itemController.GetAllItems)
 );
 
 itemsRoute.get(
   "/:id",
   /* 
-    #swagger.tags = ['Item']
+    #swagger.tags = ['Items']
 	#swagger.responses[200] = { 
 	  schema: { 
 	    "$ref": "#/definitions/Item"
@@ -38,7 +38,7 @@ itemsRoute.get(
 itemsRoute.post(
   "/",
   /*
-	#swagger.tags = ['Item']
+	#swagger.tags = ['Items']
 	#swagger.parameters['body'] = {
 		in: 'body',
 		description: 'item object',
@@ -67,7 +67,7 @@ itemsRoute.post(
 itemsRoute.put(
   "/:id",
   /*
-	#swagger.tags = ['Item']
+	#swagger.tags = ['Items']
 	#swagger.parameters['body'] = {
 		in: 'body',
 		description: 'item object',
@@ -92,7 +92,7 @@ itemsRoute.put(
 
 itemsRoute.delete(
   "/:id",
-  //#swagger.tags = ['Item']
+  //#swagger.tags = ['Items']
   /*
     #swagger.responses[204] = { 
       description: "OK"
