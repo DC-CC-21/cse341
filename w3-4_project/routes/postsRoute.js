@@ -1,11 +1,10 @@
 const postsRoute = require("express").Router();
 const postController = require("../controllers/postsController");
-const { HandleError } = require("../utilities");
+const { HandleError, authenticate } = require("../utilities");
 const {
   addPostRules,
   checkPostData,
 } = require("../validate/validatePost");
-const { requiresAuth } = require("express-openid-connect"); 
 
 postsRoute.get(
   "/",
@@ -59,7 +58,7 @@ postsRoute.post(
     description: "Database error"
   }
   */
-  requiresAuth(),
+  authenticate,
   addPostRules,
   checkPostData,
   HandleError(postController.CreatePost)
@@ -85,7 +84,7 @@ postsRoute.put(
       description: "Database error"
     }
   */
-  requiresAuth(),
+  authenticate,
   addPostRules,
   checkPostData,
   HandleError(postController.UpdatePost)
@@ -111,7 +110,7 @@ postsRoute.delete(
       description: "Database error"
     }
   */
-  requiresAuth(),
+  authenticate,
   HandleError(postController.DeletePost)
 );
 

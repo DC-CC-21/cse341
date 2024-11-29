@@ -1,11 +1,10 @@
 const itemsRoute = require("express").Router();
 const itemController = require("../controllers/itemController");
-const { HandleError } = require("../utilities");
+const { HandleError, authenticate } = require("../utilities");
 const {
   addItemRules,
   checkItemData,
 } = require("../validate/validateItem");
-const { requiresAuth } = require("express-openid-connect");
 
 itemsRoute.get(
   "/",
@@ -59,7 +58,7 @@ itemsRoute.post(
     description: "Database error"
   }
   */
-  requiresAuth(),
+  authenticate,
   addItemRules,
   checkItemData,
   HandleError(itemController.CreateItem)
@@ -85,7 +84,7 @@ itemsRoute.put(
       description: "Database error"
     }
   */
-  requiresAuth(),
+  authenticate,
   addItemRules,
   checkItemData,
   HandleError(itemController.UpdateItem)
@@ -111,7 +110,7 @@ itemsRoute.delete(
       description: "Database error"
     }
   */
-  requiresAuth(),
+  authenticate,
   HandleError(itemController.DeleteItem)
 );
 
