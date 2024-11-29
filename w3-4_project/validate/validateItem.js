@@ -8,13 +8,13 @@ const addItemRules = [
     .notEmpty()
     .withMessage("Item name is required"),
   validate
-    .check("itemDescription")
+    .check("description")
     .trim()
     .escape()
     .notEmpty()
     .withMessage("Item description is required"),
   validate
-    .body("itemPrice")
+    .body("price")
     .trim()
     .escape()
     .notEmpty()
@@ -22,11 +22,11 @@ const addItemRules = [
     .isNumeric()
     .withMessage("Item price must be a number"),
   validate
-    .body("itemTags")
+    .body("tags")
     .isArray()
     .withMessage("Item tags must be an array"),
   validate
-    .body("itemTags.*")
+    .body("tags.*")
     .isString()
     .withMessage("Item tags must be strings"),
 ];
@@ -34,7 +34,7 @@ const addItemRules = [
 async function checkItemData(req, res, next) {
   const errors = (
     await Promise.all(
-      addUserRules.map(async (rule) =>
+      addItemRules.map(async (rule) =>
         (await rule.run(req)).errors.map((x) => x.msg)
       )
     )
